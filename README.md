@@ -25,3 +25,13 @@ For creating a new queue, we use the packages’s `QueueDeclare` function define
 ## Consume messages from a queue
 
 For consuming messages, we use the packages `Consume` function defined in the channel with our desired queue properties. Then we can iterate over the messages and read them.
+
+## To run localy
+To publish a message:
+```
+cd producer && go run producer.go
+```
+To consume a message:
+```
+cd consumer && go run consumer.go
+```
