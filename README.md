@@ -21,3 +21,7 @@ For this we will use the **default exchange**. The default exchange is a pre-dec
 *Note: Every queue is automatically bound to the default exchange with a routing key same as the queue name.*
 
 For creating a new queue, we use the packages’s `QueueDeclare` function defined in the channel with our desired queue properties. Once the queue is created, we can now publish a message over the channel using its `Publish` function.
+
+## Consume messages from a queue
+
+For consuming messages, we use the packages `Consume` function defined in the channel with our desired queue properties. Then we can iterate over the messages and read them.
