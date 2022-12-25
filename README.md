@@ -11,3 +11,13 @@ To get started, we’ll first need to get a `RabbitMQ` instance running on our m
 docker run -d --hostname rabbit-in-go --name a-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management 
 ```
 This gets our `RabbitMQ` instance locally with its management interface available at `http://localhost:15672`.
+
+## Publish a message
+
+To interact with the instance, we would now need to open a channel over the connection created. This channel allows us to publish messages to an exchange and also declare queues to which we can subscribe to.
+
+For this we will use the **default exchange**. The default exchange is a pre-declared direct exchange with no name, referred by an empty string. When using the default exchange, the message is delivered to the queue with a name equal to the routing key.
+
+*Note: Every queue is automatically bound to the default exchange with a routing key same as the queue name.*
+
+For creating a new queue, we use the packages’s `QueueDeclare` function defined in the channel with our desired queue properties. Once the queue is created, we can now publish a message over the channel using its `Publish` function.
